@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Domača naloga RGTI1</title>
+    <link rel="shortcut icon" href="#">
+</head>
+<body>
+    <style>
+        textarea {
+            display: block;
+            width: 500px;
+            height: 300px;
+        }
+    </style>
+    <canvas id="platno" width="800" height="600" style="border:1px solid"></canvas>
+    <div class="slidecontainer">
+        <p>Način izrisa: (ko klikneš na rasterizacijo počakaj par sekund)</p>
+
+        <div>
+        <input type="radio" id="slikar" name="drone" value="huey" onchange='poracunaj()'
+                checked>
+        <label for="huey">Slikar</label>
+        </div>
+
+        <div>
+        <input type="radio" id="rasterizacija" name="drone" value="dewey" onchange='poracunaj()'> 
+        <label for="dewey">Rasterizacija</label>
+        </div>
+        <div>
+            <input type="radio" id="crte" name="drone" value="dewey" onchange='poracunaj()'> 
+            <label for="dewey">Črte</label>
+            </div>
+        <br>
+        <label >rotacija X:
+        <input type="range" min="0" max="360" value="0" id="sliderX" onchange='poracunaj()'>
+        </label>
+        <label >rotacija Y:
+        <input type="range" min="0" max="360" value="0" id="sliderY" onchange='poracunaj()'>
+        </label>
+        <label >rotacija Z:
+        <input type="range" min="0" max="360" value="0" id="sliderZ" onchange='poracunaj()'>
+        </label>
+        <br>
+        <label >translacija X:
+        <input type="range" min="-1000" max="1000" value="0" id="sliderTrX" onchange='poracunaj()'>
+        </label>
+        <label >translacija Y:
+        <input type="range" min="-1000" max="1000" value="0" id="sliderTrY" onchange='poracunaj()'>
+        </label>
+        <label >translacija Z:
+        <input type="range" min="-1000" max="1000" value="0" id="sliderTrZ" onchange='poracunaj()'>      
+        </label>
+        <br>
+        <label>skaliranje X:
+        <input type="range" min="10" max="250" value="100" id="sliderScX" onchange='poracunaj()'>
+        </label>
+        <label>skaliranje Y:
+        <input type="range" min="10" max="250" value="100" id="sliderScY" onchange='poracunaj()'>
+        </label>
+        <label>skaliranje Z:
+        <input type="range" min="10" max="250" value="100" id="sliderScZ" onchange='poracunaj()'>
+        </label>
+        <br>
+        <label >rotacija kamere X:
+        <input type="range" min="0" max="360" value="0" id="sliderCX" onchange='poracunaj()'>
+        </label>
+        <label >rotacija kamere Y:
+        <input type="range" min="0" max="360" value="0" id="sliderCY" onchange='poracunaj()'>
+        </label>
+        <label >rotacija kamere Z:
+        <input type="range" min="0" max="360" value="0" id="sliderCZ" onchange='poracunaj()'>
+        </label>
+        <br>
+        <label >translacija kamere X:
+        <input type="range" min="-1000" max="1000" value="0" id="sliderCTrX" onchange='poracunaj()'>
+        </label>
+        <label >translacija kamere Y:
+        <input type="range" min="-1000" max="1000" value="0" id="sliderCTrY" onchange='poracunaj()'>
+        </label>
+        <label >translacija kamere Z:
+        <input type="range" min="-1000" max="1000" value="0" id="sliderCTrZ" onchange='poracunaj()'>      
+        </label>
+        <br>
+    </div>
+    <textarea id="input" placeholder="input" onchange="readInput(event)"></textarea>
+    <script src="main.js"></script>
+    <script src="SceneReader.js"></script>
+    <script src="Matrix.js"></script>
+
+</body>
+</html>
