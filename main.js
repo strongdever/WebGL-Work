@@ -197,7 +197,6 @@ var poracunaj = function () {
     fragColor1 = calculatePhong(n0,v0T,matColor,matShininess);
     fragColor2 = calculatePhong(n1,v1T,matColor,matShininess);
     fragColor3 = calculatePhong(n2,v2T,matColor,matShininess);
-
     // v0[3] = lastV0;
     // v1[3] = lastV1;
     // v2[3] = lastV2;
@@ -224,11 +223,12 @@ var poracunaj = function () {
    
   }
   if(document.getElementById('slikar').checked) {
-  trikotniki.sort((a, b) => {
-    return b.distFromCam - a.distFromCam;
-  });
+    trikotniki.sort((a, b) => {
+      return b.distFromCam - a.distFromCam;
+    });
   }
   //console.log(trikotniki);
+  console.log(len);
   izris(trikotniki,len);
 };
 
@@ -283,6 +283,8 @@ var izris = function(trikotniki,len){
         gradient.addColorStop(1,"rgba(R,G,B,1)".replace("R",fragColor3[0]*255).replace("G",fragColor3[1]*255).replace("B",fragColor3[2]*255));
       
         ctx.lineTo(c.width / 2 + v2[0], c.height / 2 + v2[1]);
+        console.log(c.width / 2 + v2[0], c.height / 2 + v2[1] + "_+_++_+_+_+_+_");
+        console.log(i);
         ctx.strokeStyle = gradient;
         ctx.stroke();
       
@@ -412,6 +414,7 @@ function cross(a,b){
 }
 
 var readInput = function (e) {
+  console.log("sed");
   const scene = SceneReader.readFromJson(input.value);
   vertices = scene.vertices;
   indices = scene.indices;
@@ -470,13 +473,15 @@ var readInput = function (e) {
       }
       console.log(vectors[506]);
       console.log(Object.keys(vectors).length);*/
-
+console.log("indices : " + indices.length);
   for (i = 0; i < indices.length; i++) {
     if (i % 3 == 0) {
       faces[stF] = [indices[i], indices[i + 1], indices[i + 2], 1.0];
       stF++;
     }
   }
+  console.log("stv : " + stV);
+  console.log("stF : " + stF);
   /*console.log(faces[967]);
       console.log(Object.keys(faces).length);*/
 
